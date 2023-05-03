@@ -12,6 +12,7 @@
         nativeBuildInputs = with pkgs; [
           stack
           gmp.dev
+          pkg-config
           xorg.libX11
           xorg.libXext
           xorg.libXft
