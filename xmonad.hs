@@ -9,7 +9,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Ungrab
 
 primaryLayout = Tall 1 (3/100) (618/1000) ||| Full ||| ThreeColMid 1 (3/100) (1/2)
-secondaryLayout = Mirror (Tall 1 (3/100) (1/2)) ||| Full
+secondaryLayout = Mirror (Tall 1 (3/100) (1/2)) ||| Full ||| Mirror (ThreeColMid 1 (3/100) (1/2))
 
 main :: IO ()
 main = xmonad $ ewmh def
