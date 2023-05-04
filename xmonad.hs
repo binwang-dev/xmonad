@@ -8,16 +8,16 @@ import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Ungrab
 
-primaryLayout = smartSpacing 5 $ (Tall 1 (3/100) (618/1000) ||| Full ||| ThreeColMid 1 (3/100) (1/2))
-secondaryLayout = smartSpacing 5 (Mirror (Tall 1 (3/100) (1/2)) ||| Full)
+primaryLayout = Tall 1 (3/100) (618/1000) ||| Full ||| ThreeColMid 1 (3/100) (1/2)
+secondaryLayout = Mirror (Tall 1 (3/100) (1/2)) ||| Full
 
 main :: IO ()
 main = xmonad $ ewmh def
   {
-    layoutHook = ifWider 2560 primaryLayout secondaryLayout,
-    modMask = mod4Mask,
-    startupHook = spawnOnce "~/.config/xmonad/startup.sh &",
-    terminal = "alacritty"
+    layoutHook = smartSpacing 5 $ (ifWider 1440 primaryLayout secondaryLayout)
+  , modMask = mod4Mask
+  , startupHook = spawnOnce "~/.config/xmonad/startup.sh &"
+  , terminal = "alacritty"
   }
  `additionalKeysP`
   [
